@@ -163,9 +163,12 @@ class ProxyView(View):
 
         return request_headers
 
+    # def get_quoted_path(self, path):
+    #     """Return quoted path to be used in proxied request"""
+    #     return quote_plus(path.encode('utf8'), QUOTE_SAFE)
     def get_quoted_path(self, path):
         """Return quoted path to be used in proxied request"""
-        return quote_plus(path.encode('utf8'), QUOTE_SAFE)
+        return quote(path.encode('utf8'), QUOTE_SAFE)
 
     def get_encoded_query_params(self):
         """Return encoded query params to be used in proxied request"""
